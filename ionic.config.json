@@ -1,0 +1,7 @@
+{
+  "name": "textingApp",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
