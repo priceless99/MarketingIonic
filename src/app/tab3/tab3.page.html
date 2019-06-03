@@ -1,15 +1,37 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Tab Three
+      New Message:
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content padding='10px'>
   <ion-input type='textinput' id='userInput' placeholder='Type here'></ion-input>
-  <p>You receive this message because you signed up to Tier 1, rely STOPTIER1 to stop receiving message</p>
-  <ion-button (click)='send()'>Send</ion-button>
-  <ion-button (click)='get()'>Get</ion-button>
-  <ion-button (click)='text()'>Text</ion-button>
+
+  <ion-list>
+    <ion-list-header>
+      <ion-label>Send to:</ion-label>
+    </ion-list-header>
+
+    <ion-item>
+      <ion-label>Text</ion-label>
+      <ion-checkbox id='textbox'></ion-checkbox>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Email</ion-label>
+      <ion-checkbox id='emailbox'></ion-checkbox>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Push Notification</ion-label>
+      <ion-checkbox id='pushbox'></ion-checkbox>
+    </ion-item>
+  </ion-list>
+  <div style="text-align:center">
+    <ion-button (click)='send()'>Send</ion-button>
+  </div>
+  <!-- <ion-button (click)='get()'>Get</ion-button>
+  <ion-button (click)='text()'>Text</ion-button> -->
 </ion-content>

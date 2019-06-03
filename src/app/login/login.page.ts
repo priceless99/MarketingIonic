@@ -4,7 +4,7 @@ import {
 } from '@angular/core';
 import {
   Router
-} from '@angular/router'
+} from '@angular/router';
 import {
   CognitoService
 } from '../cognito.service';
@@ -35,7 +35,7 @@ export class LoginPage implements OnInit {
     if (this.cognitoService.getAuthenticatedUser() != null) {
       // this.api.getData();
       setTimeout(() => {
-        this.router.navigate(['/tabs/tab2'])
+        this.router.navigate(['/tabs/tab1']);
 
       }, 1000);
       console.log(this.cognitoService.getAuthenticatedUser())
@@ -46,42 +46,44 @@ export class LoginPage implements OnInit {
         }
         console.log('session validity: ' + session.isValid());
 
-      }, );
+      });
     }
-  };
+  }
 
   DOB: any;
   gender: any;
   SelectedValue: any;
 
-  ngOnInit() {}
+  ngOnInit() { }
 
-newlogin(){
-let main1 = document.getElementById('main1')
-let login = document.getElementById('login')
-let signup = document.getElementById('signup')
-main1.style.display = 'none'
-login.style.display = 'block'
-signup.style.display = 'none'
-}
+  newlogin() {
+    let main1 = document.getElementById('main1');
+    let login = document.getElementById('login');
+    let signup = document.getElementById('signup');
+    main1.style.display = 'none';
+    login.style.display = 'block';
+    signup.style.display = 'none';
+  }
 
-newsignup(){
-  let main1 = document.getElementById('main1')
-  let login = document.getElementById('login')
-  let signup = document.getElementById('signup')
-  main1.style.display = 'none'
-  login.style.display = 'none'
-  signup.style.display = 'block'
-}
+  newsignup() {
+    let main1 = document.getElementById('main1');
+    let login = document.getElementById('login');
+    let signup = document.getElementById('signup');
+    main1.style.display = 'none';
+    login.style.display = 'none';
+    signup.style.display = 'block';
+  }
 
-goBack1(){
-  let main1 = document.getElementById('main1')
-  let login = document.getElementById('login')
-  let signup = document.getElementById('signup')
-  main1.style.display = 'block'
-  login.style.display = 'none'
-  signup.style.display = 'none'
-}
+  goBack1() {
+    let main1 = document.getElementById('main1');
+    let login = document.getElementById('login');
+    let signup = document.getElementById('signup');
+    let x = document.getElementById('wrongpassword');
+    main1.style.display = 'block';
+    login.style.display = 'none';
+    signup.style.display = 'none';
+    x.style.display = 'none';
+  }
 
 
 
@@ -89,18 +91,20 @@ goBack1(){
 
   login() {
     this.cognitoService.authenticate(this.email, this.password).then((res) => {
-      console.log("User logged in");
+      console.log('User logged in');
       console.log(res);
       console.log(res['idToken']['jwtToken']);
       //  this.api.getData();
       setTimeout(() => {
-        this.router.navigate(['/tabs/tab2'])
+        this.router.navigate(['/tabs/tab1'])
 
       }, 1000);
 
       this.presentToast();
     }, (err) => {
-      console.log("user not logged in!");
+      let x = document.getElementById('wrongpassword');
+      x.style.display = 'block';
+      console.log('user not logged in!');
       console.log(err);
     })
   }
@@ -135,24 +139,24 @@ goBack1(){
 
   async promptVerificationCode() {
     let alert = await this.alertCtrl.create({
-      message: "Enter Verfication Code",
+      message: 'Enter Verfication Code',
       inputs: [{
-        name: "VerificationCode",
-        placeholder: "Verification Code"
+        name: 'VerificationCode',
+        placeholder: 'Verification Code'
       }],
       buttons: [{
-          text: "Cancel",
-          role: "cancel",
-          handler: data => {
-            console.log("Cancel clicked");
-          }
-        },
-        {
-          text: "Verify",
-          handler: data => {
-            this.verifyUser(data.VerificationCode);
-          }
+        text: 'Cancel',
+        role: 'cancel',
+        handler: data => {
+          console.log('Cancel clicked');
         }
+      },
+      {
+        text: 'Verify',
+        handler: data => {
+          this.verifyUser(data.VerificationCode);
+        }
+      }
 
       ]
     });
@@ -173,18 +177,18 @@ goBack1(){
 
   async successAlert() {
     const alert = await this.alertCtrl.create({
-      header: "Success",
-      message: "You are now registered!",
-      buttons: ["Sweet!"]
+      header: 'Success',
+      message: 'You are now registered!',
+      buttons: ['Sweet!']
     });
     alert.onDidDismiss().then(() => {
-      this.router.navigate(['/tabs/tab2']);
+      this.router.navigate(['/tabs/tab1']);
     });
     await alert.present();
   }
 
   onChange(SelectedValue) {
-    console.log("Selected", SelectedValue)
+    console.log('Selected', SelectedValue)
 
   }
 

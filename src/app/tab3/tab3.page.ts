@@ -12,16 +12,28 @@ import { Router } from '@angular/router';
 export class Tab3Page {
   constructor(public api: RestapiService, public sms: SMS, public cognito: CognitoService, public router: Router) { }
 
-  textinput: string = " You receive this message because you signed up to Tier 1, rely STOPTIER1 to stop receiving message";
+  senddata: string;
 
   send() {
-    let userInput = <HTMLInputElement>document.getElementById('userInput');
-    let newinput = userInput.value + this.textinput;
-    console.log(newinput);
-    userInput.value = '';
-    newinput = this.textinput
+    const userInput = <HTMLInputElement>document.getElementById('userInput');
+    const textbox = <HTMLInputElement>document.getElementById('textbox');
+    const emailbox = <HTMLInputElement>document.getElementById('emailbox');
+    const pushbox = <HTMLInputElement>document.getElementById('pushbox');
+    if (textbox.checked === true) {
+      console.log('send text');
+    }
+    if (emailbox.checked === true) {
+      console.log('send email');
+    }
+    if (pushbox.checked === true) {
+      console.log('send push');
+    }
+    console.log(userInput.value);
+    this.senddata = userInput.value;
+    console.log(this.senddata);
     // this.api.getData();
   }
+
 
 
   get() {
@@ -31,7 +43,7 @@ export class Tab3Page {
 
   text() {
     for (let i = 0; i < this.api.phonenumbers.length; i++) {
-      this.sms.send(this.api.phonenumbers[i], this.textinput);
+      this.sms.send(this.api.phonenumbers[i], this.senddata);
     }
   }
 

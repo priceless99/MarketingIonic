@@ -9,6 +9,18 @@ import { Router } from '@angular/router';
 export class Tab1Page {
 
   constructor(public router: Router, public cognito: CognitoService) { }
+  phoneicon = 'arrow-dropright';
+
+  showphonelist() {
+    let phonelist = document.getElementById('phonelist');
+    if (phonelist.style.display === 'none') {
+      phonelist.style.display = 'block';
+      this.phoneicon = 'arrow-dropdown';
+    } else {
+      phonelist.style.display = 'none';
+      this.phoneicon = 'arrow-dropright';
+    }
+  }
 
   logout() {
     this.router.navigate(['/login']);
