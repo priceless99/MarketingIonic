@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CognitoService } from '../cognito.service';
 import { Router } from '@angular/router';
+import { RestapiService } from '../restapi.service';
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
@@ -8,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class Tab1Page {
 
-  constructor(public router: Router, public cognito: CognitoService) { }
+  constructor(public router: Router, public cognito: CognitoService, public api: RestapiService) { }
   phoneicon = 'arrow-dropright';
 
   showphonelist() {
@@ -25,6 +26,11 @@ export class Tab1Page {
   logout() {
     this.router.navigate(['/login']);
     this.cognito.getAuthenticatedUser().signOut();
+  }
+
+
+  ngOnInit() {
+    this.api.getData()
   }
 
 }

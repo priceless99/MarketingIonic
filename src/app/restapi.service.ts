@@ -15,13 +15,13 @@ export class RestapiService {
   getData() {
     let myUser = this.cognitoService.getAuthenticatedUser();
     if (myUser === null) {
-      console.log("user is null");
+      console.log('user is null');
       return;
     }
 
     myUser.getSession((err, session) => {
       if (err) {
-        console.log("get error: ", err);
+        console.log('get error: ', err);
         return;
       }
       console.log('get session: ', session);
@@ -44,13 +44,13 @@ export class RestapiService {
         .subscribe(response => {
           console.log(response)
           this._data = response;
-          console.log("get success: ", this._data);
+          console.log('get success: ', this._data);
           for (let i = 0; i < this._data.Item.Phonenumbers.SS.length; i++) {
             this.phonenumbers[i] = this._data.Item.Phonenumbers.SS[i]
           }
 
         }, err => {
-          console.log("get error: ", err);
+          console.log('get error: ', err);
         });
 
     })
@@ -62,12 +62,12 @@ export class RestapiService {
   postData() {
     let myUser = this.cognitoService.getAuthenticatedUser();
     if (myUser === null) {
-      console.log("user is null");
+      console.log('user is null');
       return;
     }
     myUser.getSession((err, session) => {
       if (err) {
-        console.log("post error: ", err);
+        console.log('post error: ', err);
         return;
       }
       console.log('post session: ', session);
@@ -76,8 +76,8 @@ export class RestapiService {
       console.info('post token: ', token);
 
       let myHeaders = new HttpHeaders({
-        "Content-Type": "application/json",
-        "Authorization": token
+        'Content-Type': 'application/json',
+        'Authorization': token
       });
 
       //console.log('post headers', myHeaders);
@@ -86,14 +86,14 @@ export class RestapiService {
         'Email': myUser.getUsername(),
 
       }
-      console.log("postdata: ", postData);
+      console.log('postdata: ', postData);
       // https://499adbe4a1.execute-api.us-east-2.amazonaws.com/dev/postToTable
       this.http.post('https://ceo7e027k2.execute-api.us-east-2.amazonaws.com/newtestStage/petfood', JSON.stringify(postData),
         { headers: myHeaders })
         .subscribe(response => {
-          console.log("post success: ", response);
+          console.log('post success: ', response);
         }, err => {
-          console.log("post error: ", err);
+          console.log('post error: ', err);
         });
 
     });

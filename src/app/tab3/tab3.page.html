@@ -7,8 +7,10 @@
 </ion-header>
 
 <ion-content padding='10px'>
-  <ion-input type='textinput' id='userInput' placeholder='Type here'></ion-input>
-
+  <div><input type='textinput' id='userInput' placeholder='Type here'
+      style='width: 340px; height: 120px; border: 1px solid #999999; padding: 5px;'>
+  </div>
+  <br>
   <ion-list>
     <ion-list-header>
       <ion-label>Send to:</ion-label>
@@ -16,22 +18,48 @@
 
     <ion-item>
       <ion-label>Text</ion-label>
-      <ion-checkbox id='textbox'></ion-checkbox>
+      <ion-toggle id='textbox'></ion-toggle>
     </ion-item>
 
     <ion-item>
       <ion-label>Email</ion-label>
-      <ion-checkbox id='emailbox'></ion-checkbox>
+      <ion-toggle id='emailbox'></ion-toggle>
     </ion-item>
 
     <ion-item>
       <ion-label>Push Notification</ion-label>
-      <ion-checkbox id='pushbox'></ion-checkbox>
+      <ion-toggle id='pushbox'></ion-toggle>
     </ion-item>
   </ion-list>
+  <ion-label>When to send:</ion-label>
+  <br>
+  <ion-list>
+    <ion-list-header>Schedule messaging</ion-list-header>
+    <ion-item>
+      <ion-label>Time:</ion-label>
+      <input id='timeinput' type="time">
+    </ion-item>
+    <ion-item>
+      <ion-label>Date:</ion-label>
+      <input id='dateinput' type="date">
+    </ion-item>
+    <ion-item>
+      <ion-label>Frequency</ion-label>
+      <ion-select id='freinput' placeholder='Select one'>
+        <ion-select-option value='onetime'>One Time</ion-select-option>
+        <ion-select-option value='weekly'>Weekly</ion-select-option>
+        <ion-select-option value='monthly'>Monthly</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+  <!-- <form>
+    <select id='freinput'>
+      <option value="onetime">One time</option>
+      <option value="weekly">Weekly</option>
+      <option value="monthly">Monthly</option>
+    </select>
+  </form> -->
   <div style="text-align:center">
-    <ion-button (click)='send()'>Send</ion-button>
+    <ion-button type='submit' (click)='confirm()'>Send</ion-button>
   </div>
-  <!-- <ion-button (click)='get()'>Get</ion-button>
-  <ion-button (click)='text()'>Text</ion-button> -->
 </ion-content>
