@@ -8,11 +8,17 @@
 
 <ion-content>
   <ion-list>
-    <ion-item *ngFor="let item of items">
-      <ion-icon [name]="item.icon" slot="start"></ion-icon>
-      {{item.title}}
-      <div class="item-note" slot="end">
-        {{item.note}}
+    <ion-item *ngFor="let item of this.api.scheduledmessage">
+      <h3>{{item.message}}</h3>
+      <div style="float:right">
+        <ion-list>
+          <ion-item *ngIf='item.text === true'>Text</ion-item>
+          <ion-item *ngIf='item.email === true'>email</ion-item>
+          <ion-item *ngIf='item.push === true'>Push</ion-item>
+          <ion-item>{{item.time}}</ion-item>
+          <ion-item>{{item.date}}</ion-item>
+          <ion-item>{{item.frequency}}</ion-item>
+        </ion-list>
       </div>
     </ion-item>
   </ion-list>

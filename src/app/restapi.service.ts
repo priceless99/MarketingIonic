@@ -10,7 +10,34 @@ export class RestapiService {
   constructor(public cognitoService: CognitoService, public http: HttpClient) { }
 
   public _data: any;
-  public phonenumbers = [];
+  public phonenumbers = [
+    '414-306-2025', '252-314-1214', '414-313-3131'
+  ];
+  public emails = [
+    'abc@abc.com',
+    'abc@abc.com',
+    'abc@abc.com',
+    'abc@abc.com'
+  ];
+  public scheduledmessage = [{
+    message: 'Firstmessage',
+    text: true,
+    email: false,
+    push: false,
+    time: '15:00',
+    date: '2020-10-10',
+    frequency: 'Everyweek'
+  }, {
+    message: 'Lock in 8PM - 8AM',
+    text: true,
+    email: false,
+    push: false,
+    time: '15:00',
+    date: '2020-10-10',
+    frequency: 'One Time'
+  }];
+
+
 
   getData() {
     let myUser = this.cognitoService.getAuthenticatedUser();

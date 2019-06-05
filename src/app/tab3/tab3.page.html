@@ -7,7 +7,7 @@
 </ion-header>
 
 <ion-content padding='10px'>
-  <div><input type='textinput' id='userInput' placeholder='Type here'
+  <div><input required type='textinput' id='userInput' placeholder='Type here'
       style='width: 340px; height: 120px; border: 1px solid #999999; padding: 5px;'>
   </div>
   <br>
@@ -31,17 +31,40 @@
       <ion-toggle id='pushbox'></ion-toggle>
     </ion-item>
   </ion-list>
-  <ion-label>When to send:</ion-label>
-  <br>
+
   <ion-list>
+    <ion-radio-group>
+      <ion-list-header>
+        <ion-label>WHEN TO SEND MESSAGE</ion-label>
+      </ion-list-header>
+
+      <ion-item>
+        <ion-label>Now</ion-label>
+        <ion-radio (ionSelect)='now()' slot="start" value="biff" checked></ion-radio>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Schedule</ion-label>
+        <ion-radio (ionSelect)='showschedule()' slot="start" value="griff"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+  </ion-list>
+
+  <div id='sendnow' style="text-align:center">
+    <ion-button type='submit' (click)='confirmsendnow()'>Send Now</ion-button>
+  </div>
+
+  <ion-list style="display:none" id='schedule'>
     <ion-list-header>Schedule messaging</ion-list-header>
     <ion-item>
-      <ion-label>Time:</ion-label>
-      <input id='timeinput' type="time">
-    </ion-item>
-    <ion-item>
       <ion-label>Date:</ion-label>
-      <input id='dateinput' type="date">
+      <ion-datetime id='timeinput' displayFormat="DDDD MMM D, YYYY" min="2019" max="2030" value="2019-07-02">
+      </ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Time:</ion-label>
+      <ion-datetime id='dateinput' displayFormat="h:mm a" value='14:00'></ion-datetime>
     </ion-item>
     <ion-item>
       <ion-label>Frequency</ion-label>
@@ -51,6 +74,9 @@
         <ion-select-option value='monthly'>Monthly</ion-select-option>
       </ion-select>
     </ion-item>
+    <div style="text-align:center">
+      <ion-button type='submit' (click)='confirm()'>Shedule</ion-button>
+    </div>
   </ion-list>
   <!-- <form>
     <select id='freinput'>
@@ -59,7 +85,6 @@
       <option value="monthly">Monthly</option>
     </select>
   </form> -->
-  <div style="text-align:center">
-    <ion-button type='submit' (click)='confirm()'>Send</ion-button>
-  </div>
+
+
 </ion-content>

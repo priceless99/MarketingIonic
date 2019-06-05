@@ -11,15 +11,25 @@ export class Tab1Page {
 
   constructor(public router: Router, public cognito: CognitoService, public api: RestapiService) { }
   phoneicon = 'arrow-dropright';
-
+  emailicon = 'arrow-dropright';
   showphonelist() {
-    let phonelist = document.getElementById('phonelist');
+    const phonelist = document.getElementById('phonelist');
     if (phonelist.style.display === 'none') {
       phonelist.style.display = 'block';
       this.phoneicon = 'arrow-dropdown';
     } else {
       phonelist.style.display = 'none';
       this.phoneicon = 'arrow-dropright';
+    }
+  }
+  showemaillist() {
+    const emaillist = document.getElementById('emaillist');
+    if (emaillist.style.display === 'none') {
+      emaillist.style.display = 'block';
+      this.emailicon = 'arrow-dropdown';
+    } else {
+      emaillist.style.display = 'none';
+      this.emailicon = 'arrow-dropright';
     }
   }
 
@@ -30,7 +40,7 @@ export class Tab1Page {
 
 
   ngOnInit() {
-    this.api.getData()
+    // this.api.getData()
   }
 
 }
