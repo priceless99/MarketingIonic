@@ -49,7 +49,7 @@ export class Tab3Page {
   async confirmsendnow() {
     const alert = await this.alert.create({
       header: 'Confirm!',
-      message: 'Are you ready to send it now!',
+      message: `Are you ready to send it now!`,
       buttons: [
         {
           text: 'Cancel',
