@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { CognitoService } from './cognito.service';
-import { HttpClient, HttpHeaders } from '@angular/common/http'
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +20,7 @@ export class RestapiService {
     'abc@abc.com'
   ];
   public scheduledmessage = [{
-    message: 'Firstmessage',
+    message: 'Refer a friend',
     text: true,
     email: false,
     push: false,
@@ -29,9 +29,9 @@ export class RestapiService {
     frequency: 'Everyweek'
   }, {
     message: 'Lock in 8PM - 8AM',
-    text: true,
-    email: false,
-    push: false,
+    text: false,
+    email: true,
+    push: true,
     time: '15:00',
     date: '2020-10-10',
     frequency: 'One Time'

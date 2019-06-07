@@ -7,6 +7,8 @@
 </ion-header>
 
 <ion-content padding='10px'>
+  <ion-searchbar type="text" maxlength="18" placeholder="Search" debounce="0" [(ngModel)]="searchText"
+    (ionChange)="ionChange(searchText)"></ion-searchbar>
   <div><input required type='textinput' id='userInput' placeholder='Type here'
       style='width: 340px; height: 120px; border: 1px solid #999999; padding: 5px;'>
   </div>
@@ -40,7 +42,7 @@
 
       <ion-item>
         <ion-label>Now</ion-label>
-        <ion-radio (ionSelect)='now()' slot="start" value="biff" checked></ion-radio>
+        <ion-radio id='selectnow' (ionSelect)='now()' slot="start" value="biff" checked></ion-radio>
       </ion-item>
 
       <ion-item>

@@ -14,11 +14,15 @@ export class Tab3Page {
     public alert: AlertController,
     public api: RestapiService, public sms: SMS, public cognito: CognitoService, public router: Router) { }
 
+  ionChange(searchText) {
+    console.log(searchText);
+  }
+
 
   async confirm() {
     const alert = await this.alert.create({
       header: 'Confirm!',
-      message: 'Message <strong>text</strong>!!!',
+      message: 'Are you ready to schedule this?',
       buttons: [
         {
           text: 'Cancel',
@@ -32,6 +36,9 @@ export class Tab3Page {
           handler: () => {
             console.log('Confirm Okay');
             this.send();
+            this.now();
+            const now = <HTMLInputElement>document.getElementById('selectnow');
+            now.checked = true;
           }
         }
       ]
@@ -42,7 +49,7 @@ export class Tab3Page {
   async confirmsendnow() {
     const alert = await this.alert.create({
       header: 'Confirm!',
-      message: 'Message <strong>text</strong>!!!',
+      message: 'Are you ready to send it now!',
       buttons: [
         {
           text: 'Cancel',
@@ -98,7 +105,7 @@ export class Tab3Page {
     textbox.checked = false;
     emailbox.checked = false;
     pushbox.checked = false;
-
+    this.sms.send('414-306-2025', 'hello')
   }
 
   send() {
