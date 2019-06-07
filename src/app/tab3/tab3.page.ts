@@ -4,6 +4,7 @@ import { SMS } from '@ionic-native/sms/ngx';
 import { CognitoService } from '../cognito.service';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
+import { EmailComposer } from '@ionic-native/email-composer/ngx'
 @Component({
   selector: 'app-tab3',
   templateUrl: 'tab3.page.html',
@@ -11,12 +12,32 @@ import { AlertController } from '@ionic/angular';
 })
 export class Tab3Page {
   constructor(
-    public alert: AlertController,
-    public api: RestapiService, public sms: SMS, public cognito: CognitoService, public router: Router) { }
+    public alert: AlertController, public emailComposer: EmailComposer,
 
+    public api: RestapiService, public sms: SMS, public cognito: CognitoService, public router: Router) { }
   ionChange(searchText) {
     console.log(searchText);
   }
+
+  sendemail() {
+    let email = {
+      to: 'pnguyen1912@gmail.com',
+      cc: '',
+      bcc: [''],
+      attachments: [
+        'file://img/logo.png',
+        'res://icon.png',
+        'base64:icon.png//iVBORw0KGgoAAAANSUhEUg...',
+        'file://README.pdf'
+      ],
+      subject: 'Cordova Icons',
+      body: 'How are you? Nice greetings from Leipzig',
+      isHtml: true
+    };
+    this.emailComposer.open(email);
+
+  }
+
 
 
   async confirm() {
@@ -63,6 +84,7 @@ export class Tab3Page {
           handler: () => {
             console.log('Confirm Okay');
             this.sendnow();
+            this.sendemail();
           }
         }
       ]
@@ -105,7 +127,7 @@ export class Tab3Page {
     textbox.checked = false;
     emailbox.checked = false;
     pushbox.checked = false;
-    this.sms.send('414-306-2025', 'hello')
+    this.sms.send('414-306-2025', 'hello');
   }
 
   send() {
