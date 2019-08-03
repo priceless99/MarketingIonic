@@ -1,10 +1,10 @@
 <ion-header>
     <ion-item>
       <ion-label style="font-size: 1.5rem;
-      font-weight: 200; padding-left: 35%">
+      font-weight: 200; padding-left: 35%; padding-top: 15px;">
         Dashboard
       </ion-label> 
-      <ion-icon slot="end" color="medium" (click)='logout()' name="log-out"></ion-icon>
+      <ion-icon slot="end" color="medium" (click)='logout()' name="log-out" style="padding-top: 15px;"></ion-icon>
     </ion-item>
 </ion-header>
 
@@ -39,7 +39,6 @@
       <ion-icon slot="start" color="medium" name="mail"></ion-icon>
       <ion-label>Emails</ion-label>
       <ion-icon id='emailicon' slot='end' (click)='showemaillist()' name={{this.emailicon}}></ion-icon>
-
     </ion-item>
     <ion-card id='emaillist' style="display:none">
       <ion-list>
@@ -55,11 +54,11 @@
     <ion-item href="">
       <ion-icon slot="start" color="medium" name="color-fill"></ion-icon>
       <ion-label>Theme Your App</ion-label>
-    </ion-item> -->
-  </ion-list>
-  <ion-list lines="none">
+    </ion-item>  -->
+   </ion-list>
+  <!-- <ion-list lines="none">
     <ion-list-header>
       <ion-label id="subHeading">Analyst</ion-label>
     </ion-list-header>
-  </ion-list>
+  </ion-list> -->
 </ion-content>
