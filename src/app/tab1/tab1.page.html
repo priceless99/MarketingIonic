@@ -1,28 +1,29 @@
-<ion-content>
-  <ion-list>
+<ion-header>
     <ion-item>
+      <ion-label style="font-size: 1.5rem;
+      font-weight: 200; padding-left: 35%">
+        Dashboard
+      </ion-label> 
       <ion-icon slot="end" color="medium" (click)='logout()' name="log-out"></ion-icon>
     </ion-item>
-  </ion-list>
+</ion-header>
 
+<ion-content>
   <ion-card class="welcome-card">
     <ion-img src="/assets/thumbnail.png"></ion-img>
     <ion-card-header>
-      <ion-card-subtitle>Dashboard</ion-card-subtitle>
       <ion-card-title>Tier 1 Gaming Lounge</ion-card-title>
-
     </ion-card-header>
     <ion-card-content>
-      <p>This app helps marketing easier</p>
+        <h2>This app's purpose is to make marketing easier and efficient.</h2>
     </ion-card-content>
-
   </ion-card>
   <ion-list lines="none">
     <ion-list-header>
-      <ion-label>Databases</ion-label>
+      <ion-label id="subHeading">Databases</ion-label>
     </ion-list-header>
     <ion-item>
-      <ion-icon slot="start" color="medium" name="book"></ion-icon>
+      <ion-icon slot="start" color="medium" name="call"></ion-icon>
       <ion-label>Phone numbers</ion-label>
       <ion-icon id='phoneicon' slot='end' (click)="showphonelist()" name={{this.phoneicon}}></ion-icon>
 
@@ -58,7 +59,7 @@
   </ion-list>
   <ion-list lines="none">
     <ion-list-header>
-      <ion-label>Analyst</ion-label>
+      <ion-label id="subHeading">Analyst</ion-label>
     </ion-list-header>
   </ion-list>
 </ion-content>
