@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { RestapiService } from '../restapi.service';
-import { SMS } from '@ionic-native/sms/ngx';
+import { SMS } from '@ionic-native/sms/';
 import { CognitoService } from '../cognito.service';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { EmailComposer } from '@ionic-native/email-composer/ngx'
+
 @Component({
   selector: 'app-tab3',
   templateUrl: 'tab3.page.html',
@@ -208,7 +209,7 @@ export class Tab3Page {
     textbox.checked = false;
     emailbox.checked = false;
     pushbox.checked = false;
-    this.sms.send('414-306-2025', 'hello');
+    this.sms.send('414-477-6749', 'text sent from marketing app');
   }
 
   send() {
