@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { RestapiService } from '../restapi.service';
-import { SMS } from '@ionic-native/sms/ngx';
 import { CognitoService } from '../cognito.service';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
