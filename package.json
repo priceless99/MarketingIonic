@@ -70,7 +70,8 @@
     "protractor": "~5.4.0",
     "ts-node": "~8.0.0",
     "tslint": "~5.12.0",
-    "typescript": "~3.1.6"
+    "typescript": "~3.1.6",
+    "cordova.plugins.diagnostic": "4.0.10"
   },
   "description": "An Ionic project",
   "cordova": {
@@ -86,7 +87,8 @@
         "ANDROID_SUPPORT_ANNOTATIONS_VERSION": "27.+"
       },
       "cordova-plugin-ionic-keyboard": {},
-      "cordova-plugin-android-permissions": {}
+      "cordova-plugin-android-permissions": {},
+      "cordova.plugins.diagnostic": {}
     },
     "platforms": [
       "android"
