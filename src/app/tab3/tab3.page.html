@@ -1,21 +1,27 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>
-      New Message:
-    </ion-title>
-  </ion-toolbar>
+    <ion-item>
+      <ion-label style="padding-left: 35%;font-size: 1.5rem;
+      font-weight: 200;">
+        Marketing
+      </ion-label> 
+      <ion-icon slot="end" color="medium" (click)='logout()' name="log-out"></ion-icon>
+    </ion-item>
 </ion-header>
 
 <ion-content padding='10px'>
+  <ion-list-header>
+    <ion-label id="subHeading">CREATE MESSAGE:</ion-label>
+  </ion-list-header>
+
   <div>
-    <ion-input type="text" maxlength="18" placeholder="Type your message" debounce="0" [(ngModel)]="searchText"
+    <ion-textarea rows="5" cols="50" type="text" placeholder="Type your message" debounce="0" [(ngModel)]="searchText"
       (ionChange)="ionChange(searchText)" id='userInput'
-      style=' height: 120px; border: 1px solid #999999; padding: 5px;'></ion-input>
+      style='border: 1px solid #999999; border-radius: 15px; padding: 5px; padding-left: 8px;'></ion-textarea>
   </div>
   <br>
   <ion-list>
     <ion-list-header>
-      <ion-label>Send to:</ion-label>
+      <ion-label id="subHeading">SEND AS:</ion-label>
     </ion-list-header>
 
     <ion-item>
@@ -35,18 +41,18 @@
   </ion-list>
 
   <ion-list>
-    <ion-radio-group>
       <ion-list-header>
-        <ion-label>WHEN TO SEND MESSAGE</ion-label>
+        <ion-label id="subHeading">WHEN TO SEND MESSAGE:</ion-label>
       </ion-list-header>
 
+    <ion-radio-group>
       <ion-item>
         <ion-label>Now</ion-label>
         <ion-radio id='selectnow' (ionSelect)='now()' slot="start" value="biff" checked></ion-radio>
       </ion-item>
 
       <ion-item>
-        <ion-label>Schedule</ion-label>
+        <ion-label>Set Schedule</ion-label>
         <ion-radio (ionSelect)='showschedule()' slot="start" value="griff"></ion-radio>
       </ion-item>
     </ion-radio-group>
@@ -76,17 +82,8 @@
         <ion-select-option value='monthly'>Monthly</ion-select-option>
       </ion-select>
     </ion-item>
-    <div style="text-align:center">
-      <ion-button type='submit' (click)='confirm()'>Shedule</ion-button>
+    <div style="text-align:center; margin: 1.25rem">
+      <ion-button type='submit' (click)='confirm()'>Schedule</ion-button>
     </div>
   </ion-list>
-  <!-- <form>
-    <select id='freinput'>
-      <option value="onetime">One time</option>
-      <option value="weekly">Weekly</option>
-      <option value="monthly">Monthly</option>
-    </select>
-  </form> -->
-
-
 </ion-content>
