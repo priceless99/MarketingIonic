@@ -1,30 +1,29 @@
 <ion-header>
     <ion-item>
       <ion-label style="padding-left: 35%;font-size: 1.5rem;
-      font-weight: 200;">
+      font-weight: 200; padding-top: 15px;">
         Schedule
       </ion-label> 
-      <ion-icon slot="end" color="medium" (click)='logout()' name="log-out"></ion-icon>
+      <ion-icon slot="end" color="medium" (click)='logout()' name="log-out" style="padding-top: 15px;"></ion-icon>
     </ion-item>
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <ion-item *ngFor="let item of this.api.scheduledmessage">
-      <ion-label id="subHeading">{{item.message}}</ion-label>
-      <!-- <ion-list slot='end'>
-        <ion-item *ngIf='item.text === true'>Text</ion-item>
-        <ion-item *ngIf='item.email === true'>Email</ion-item>
-        <ion-item *ngIf='item.push === true'>Push</ion-item>
-        <ion-item>{{item.time}}</ion-item>
-        <ion-item>{{item.date}}</ion-item>
-        <ion-item>{{item.frequency}}</ion-item>
-      </ion-list> -->
-      <ion-button (click)='showdetails(item)' slot='end'>Details</ion-button>
-      <ion-icon (click)='confirmdelete(item)' slot='end' name="trash"></ion-icon>
-    </ion-item>
-  </ion-list>
-
-
-
+  <ion-card>
+    <ion-list>
+      <ion-item *ngFor="let item of this.api.scheduledmessage">
+        <ion-label style="font-size: 1rem; margin: 0.75rem;">{{item.message}}</ion-label>
+        <!-- <ion-list slot='end'>
+          <ion-item *ngIf='item.text === true'>Text</ion-item>
+          <ion-item *ngIf='item.email === true'>Email</ion-item>
+          <ion-item *ngIf='item.push === true'>Push</ion-item>
+          <ion-item>{{item.time}}</ion-item>
+          <ion-item>{{item.date}}</ion-item>
+          <ion-item>{{item.frequency}}</ion-item>
+        </ion-list> -->
+        <ion-button (click)='showdetails(item)' slot='end'>Details</ion-button>
+        <ion-icon (click)='confirmdelete(item)' slot='end' name="trash"></ion-icon>
+      </ion-item>
+    </ion-list>
+  </ion-card>
 </ion-content>

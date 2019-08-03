@@ -1,56 +1,51 @@
 <ion-content style="text-align:center">
-
-  <div id="main1" style="display: block">
+  <ion-img src="/assets/thumbnail.png"></ion-img>
+  <h2><strong>Welcome to <br>Tier 1 Marketing</strong></h2>
+  <br>
+  <!-- <div id="main1" style="display: block">
     <div>
       <ion-button (click)="newlogin()">Login</ion-button>
     </div>
-    <div>
-      <ion-button (click)="newsignup()"> Sign Up </ion-button>
-    </div>
-  </div>
-
-  <div id="login" style="display: none">
-    <div>
+  </div> -->
+  <div id="login">
+    <ion-icon name="person" style="font-size: 5rem;" color="secondary"></ion-icon>
+    <div style="padding-left: 30px; padding-right: 30px;">
       <ion-list>
         <ion-item>
           Email:
-          <ion-input [(ngModel)]="email" type="email" placeholder="Enter Email" required></ion-input>
+          <ion-input [(ngModel)]="email" type="email" placeholder="Enter Email" required style="margin-left: 21%;"></ion-input>
         </ion-item>
         <ion-item>
           Password:
-          <ion-input [(ngModel)]="password" type="password" placeholder="Enter Password" required></ion-input>
+          <ion-input [(ngModel)]="password" type="password" placeholder="Enter Password" required style="margin-left: 9.98%;"></ion-input>
           <!-- <input type="password" placeholder="Confirm Password" required> -->
         </ion-item>
       </ion-list>
     </div>
     <p id='wrongpassword' style="color: red; display:none">* Incorrect Email or Password</p>
     <ion-button (click)="login()">Login</ion-button>
-
-
-
     <div>
+        <ion-button (click)="newsignup()"> Sign-Up </ion-button>
+      </div>
+    <!-- <div>
       <ion-button (click)="goBack1()">Back</ion-button>
-    </div>
-
+    </div> -->
   </div>
-
-
-
-
-
-
   <div id="signup" style="display:none">
 
-    <ion-list>
+    <ion-list style="padding-left: 30px; padding-right: 30px;">
       <ion-item>
-        <ion-input required type="text" placeholder="Email" [(ngModel)]="email"></ion-input>
+        Email:
+        <ion-input required type="text" placeholder="Email" [(ngModel)]="email" style="margin-left: 23%;"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-input required type="password" placeholder="Password" [(ngModel)]="password"></ion-input>
+        Password:
+        <ion-input required type="password" placeholder="Password" [(ngModel)]="password" style="margin-left: 12%;"></ion-input>
       </ion-item>
       <ion-item>
-        <label for="date">Date of Birth</label>
-        <ion-input slot='end' required type="date" placeholder="Date of Birth" [(ngModel)]="DOB"></ion-input>
+        <!-- <ion-label>Date of Birth</ion-label> -->
+        Date of Birth:
+        <ion-input placeholder="MM/DD/YYYY" for="date"><ion-datetime displayFormat="MM/DD/YYYY"></ion-datetime></ion-input>
       </ion-item>
 
     </ion-list>
@@ -58,9 +53,7 @@
       <ion-button (click)="goBack1()">Back</ion-button>
     </div>
     <div>
-      <ion-button (click)="register()">Register</ion-button>
+      <ion-button (click)="register()">Sign-Up</ion-button>
     </div>
   </div>
-
-
 </ion-content>

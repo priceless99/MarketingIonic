@@ -80,7 +80,7 @@ export class LoginPage implements OnInit {
     let signup = document.getElementById('signup');
     let x = document.getElementById('wrongpassword');
     main1.style.display = 'block';
-    login.style.display = 'none';
+    login.style.display = 'block';
     signup.style.display = 'none';
     x.style.display = 'none';
   }
@@ -96,6 +96,7 @@ export class LoginPage implements OnInit {
       console.log(res['idToken']['jwtToken']);
       //  this.api.getData();
       setTimeout(() => {
+        console.log("yooo")
         this.router.navigate(['/tabs/tab1'])
 
       }, 1000);
