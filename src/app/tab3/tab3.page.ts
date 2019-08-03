@@ -11,6 +11,33 @@ import { EmailComposer } from '@ionic-native/email-composer/ngx'
   styleUrls: ['tab3.page.scss']
 })
 export class Tab3Page {
+  messageBuilder = {
+    input: '',
+    text: false,
+    email: false,
+    push: false,
+    sendNow: false,
+    sendLater: false,
+    date: '',
+    time: '',
+    frequency: '',
+    subject: ''
+  }
+  messageArray =[ 
+    {
+    input: '',
+    Text: false,
+    Email: false,
+    Push: false,
+    sendNow: true,
+    sendLater: false,
+    date: '',
+    time: '',
+    frequency: '',
+    subject: ''
+  }
+]
+
   constructor(
     public alert: AlertController, public emailComposer: EmailComposer,
 
@@ -57,7 +84,7 @@ export class Tab3Page {
           handler: () => {
             console.log('Confirm Okay');
             this.send();
-            this.now();
+            this.now(event);
             const now = <HTMLInputElement>document.getElementById('selectnow');
             now.checked = true;
           }
@@ -93,18 +120,71 @@ export class Tab3Page {
     await alert.present();
   }
 
-  showschedule() {
+  showschedule(e) {
     const schedule = <HTMLInputElement>document.getElementById('schedule');
     const sendnow = <HTMLInputElement>document.getElementById('sendnow');
     schedule.style.display = 'block';
     sendnow.style.display = 'none';
+    this.messageBuilder.sendLater = true;
+    this.messageBuilder.sendNow = false;
+      console.log(this.messageBuilder.text)
   }
 
-  now() {
+  now(e): void {
     const schedule = <HTMLInputElement>document.getElementById('schedule');
     const sendnow = <HTMLInputElement>document.getElementById('sendnow');
     schedule.style.display = 'none';
     sendnow.style.display = 'block';
+    if (e.currentTarget.checked === true) {
+      this.messageBuilder.sendNow = true
+      console.log(this.messageBuilder.sendNow)
+    }
+    else {
+      console.log('false')
+    }
+  }
+
+  text(e): void {
+    if (e.currentTarget.checked === true) {
+      this.messageBuilder.text = true
+      console.log(this.messageBuilder.text)
+    }
+    else {
+      console.log('false')
+    }
+}
+  email(e): void {
+  if (e.currentTarget.checked === true) {
+    this.messageBuilder.email = true
+    console.log(this.messageBuilder.email)
+  }
+  else {
+    console.log('false')
+  }
+}
+  push(e): void {
+  if (e.currentTarget.checked === true) {
+    this.messageBuilder.push = true
+    console.log(this.messageBuilder.push)
+  }
+  else {
+    console.log('false')
+  }
+}
+  dateChange() {
+    console.log(this.messageBuilder.date)
+  }
+  timeChange() {
+    console.log(this.messageBuilder.time)
+  }
+  frequency() {
+    console.log(this.messageBuilder)
+  }
+  messageChange() {
+    console.log(this.messageBuilder.input)
+  }
+  subject() {
+    console.log(this.messageBuilder.subject)
   }
 
   sendnow() {
@@ -120,6 +200,7 @@ export class Tab3Page {
       alert('Must send to something');
       return false;
     }
+  
 
     console.log(userInput.value, textbox.checked, emailbox.checked, pushbox.checked);
 

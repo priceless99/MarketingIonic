@@ -14,8 +14,13 @@
   </ion-list-header>
 
   <div>
-    <ion-textarea rows="5" cols="50" type="text" placeholder="Type your message" debounce="0" [(ngModel)]="searchText"
-      (ionChange)="ionChange(searchText)" id='userInput'
+      <ion-textarea rows="1" cols="50" type="text" placeholder="Subject" debounce="0" [(ngModel)]="messageBuilder.subject"
+      (ionChange)="subject()" id='userInput'
+      style='border: 1px solid #999999; border-radius: 15px; padding: 5px; padding-left: 8px;'></ion-textarea>
+  </div>
+  <div>
+    <ion-textarea rows="5" cols="50" type="text" placeholder="Type your message" debounce="0" [(ngModel)]="messageBuilder.input"
+      (ionChange)="messageChange()" id='userInput'
       style='border: 1px solid #999999; border-radius: 15px; padding: 5px; padding-left: 8px;'></ion-textarea>
   </div>
   <br>
@@ -26,17 +31,18 @@
 
     <ion-item>
       <ion-label>Text</ion-label>
-      <ion-toggle id='textbox'></ion-toggle>
+      <ion-toggle (ionChange)="text($event)"  id='textbox'></ion-toggle>
     </ion-item>
+
 
     <ion-item>
       <ion-label>Email</ion-label>
-      <ion-toggle id='emailbox'></ion-toggle>
+      <ion-toggle (ionChange)="email($event)" id='emailbox'></ion-toggle>
     </ion-item>
 
     <ion-item>
       <ion-label>Push Notification</ion-label>
-      <ion-toggle id='pushbox'></ion-toggle>
+      <ion-toggle (ionChange)="push($event)" id='pushbox'></ion-toggle>
     </ion-item>
   </ion-list>
 
@@ -48,12 +54,12 @@
     <ion-radio-group>
       <ion-item>
         <ion-label>Now</ion-label>
-        <ion-radio id='selectnow' (ionSelect)='now()' slot="start" value="biff" checked></ion-radio>
+        <ion-radio id='selectnow' (ionSelect)="now($event)" slot="start" value="biff" checked></ion-radio>
       </ion-item>
 
       <ion-item>
         <ion-label>Set Schedule</ion-label>
-        <ion-radio (ionSelect)='showschedule()' slot="start" value="griff"></ion-radio>
+        <ion-radio (ionSelect)='showschedule($event)' slot="start" value="griff"></ion-radio>
       </ion-item>
     </ion-radio-group>
   </ion-list>
@@ -66,17 +72,17 @@
     <ion-list-header>Schedule messaging</ion-list-header>
     <ion-item>
       <ion-label>Date:</ion-label>
-      <ion-datetime id='timeinput' displayFormat="DDDD MMM D, YYYY" min="2019" max="2030" value="2019-07-02">
+      <ion-datetime [(ngModel)]="messageBuilder.date" (ionChange)="dateChange()"  id='timeinput' displayFormat="DDDD MMM D, YYYY" min="2019" max="2030" value="2019-07-02">
       </ion-datetime>
     </ion-item>
 
     <ion-item>
       <ion-label>Time:</ion-label>
-      <ion-datetime id='dateinput' displayFormat="h:mm a" value='14:00'></ion-datetime>
+      <ion-datetime [(ngModel)]="messageBuilder.time" (ionChange)="timeChange()" id='dateinput' displayFormat="h:mm a" value='14:00'></ion-datetime>
     </ion-item>
     <ion-item>
       <ion-label>Frequency</ion-label>
-      <ion-select id='freinput' placeholder='Select one'>
+      <ion-select [(ngModel)]='messageBuilder.frequency' (ionChange)='frequency()' id='freinput' placeholder='Select one'>
         <ion-select-option value='onetime'>One Time</ion-select-option>
         <ion-select-option value='weekly'>Weekly</ion-select-option>
         <ion-select-option value='monthly'>Monthly</ion-select-option>
