@@ -10,7 +10,7 @@ import { EmailComposer } from '@ionic-native/email-composer/ngx';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
-import { SMS } from '@ionic-native/sms/';
+import { SMS } from '@ionic-native/sms/ngx';
 import { AndroidPermissions } from '@ionic-native/android-permissions/ngx';
 
 @NgModule({
