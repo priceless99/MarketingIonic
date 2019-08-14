@@ -47,6 +47,11 @@ export class Tab3Page {
     console.log(searchText);
   }
 
+
+  testAWS() {
+    this.api.testPost()
+  }
+
   sendemail() {
     let email = {
       to: 'pnguyen1912@gmail.com',
@@ -111,7 +116,7 @@ export class Tab3Page {
           text: 'Okay',
           handler: () => {
             console.log('Confirm Okay');
-            this.sendnow();
+            // this.sendnow();
             this.sendemail();
           }
         }
@@ -126,9 +131,9 @@ export class Tab3Page {
     const sendnow = <HTMLInputElement>document.getElementById('sendnow');
     schedule.style.display = 'block';
     sendnow.style.display = 'none';
-    this.messageBuilder.sendLater = true;
-    this.messageBuilder.sendNow = false;
-      console.log(this.messageBuilder.text)
+    this.api.messageTest.sendLater = true;
+    this.api.messageTest.sendNow = false;
+      console.log(this.api.messageTest.text)
   }
 
   now(e): void {
@@ -137,8 +142,8 @@ export class Tab3Page {
     schedule.style.display = 'none';
     sendnow.style.display = 'block';
     if (e.currentTarget.checked === true) {
-      this.messageBuilder.sendNow = true
-      console.log(this.messageBuilder.sendNow)
+      this.api.messageTest.sendNow = true
+      console.log(this.api.messageTest.sendNow)
     }
     else {
       console.log('false')
@@ -147,8 +152,8 @@ export class Tab3Page {
 
   text(e): void {
     if (e.currentTarget.checked === true) {
-      this.messageBuilder.text = true
-      console.log(this.messageBuilder.text)
+      this.api.messageTest.text = true
+      console.log(this.api.messageTest.text)
     }
     else {
       console.log('false')
@@ -156,8 +161,8 @@ export class Tab3Page {
 }
   email(e): void {
   if (e.currentTarget.checked === true) {
-    this.messageBuilder.email = true
-    console.log(this.messageBuilder.email)
+    this.api.messageTest.email = true
+    console.log(this.api.messageTest.email)
   }
   else {
     console.log('false')
@@ -165,52 +170,58 @@ export class Tab3Page {
 }
   push(e): void {
   if (e.currentTarget.checked === true) {
-    this.messageBuilder.push = true
-    console.log(this.messageBuilder.push)
+    this.api.messageTest.push = true
+    console.log(this.api.messageTest.push)
   }
   else {
     console.log('false')
   }
 }
   dateChange() {
-    console.log(this.messageBuilder.date)
+   this.api.messageTest.date = this.messageBuilder.date
+    console.log(this.api.messageTest.date)
+    // console.log(this.messageBuilder.date)
   }
   timeChange() {
-    console.log(this.messageBuilder.time)
+    this.api.messageTest.time = this.messageBuilder.time
+    console.log(this.api.messageTest.time)
   }
   frequency() {
-    console.log(this.messageBuilder)
+    this.api.messageTest.frequency = this.messageBuilder.frequency
+    console.log(this.api.messageTest)
   }
   messageChange() {
-    console.log(this.messageBuilder.input)
+   this.api.messageTest.input = this.messageBuilder.input
+    console.log(this.api.messageTest.input)
   }
   subject() {
-    console.log(this.messageBuilder.subject)
+   this.api.messageTest.subject = this.messageBuilder.subject
+    console.log(this.api.messageTest.subject)
   }
 
-  sendnow() {
-    const userInput = <HTMLInputElement>document.getElementById('userInput');
-    const textbox = <HTMLInputElement>document.getElementById('textbox');
-    const emailbox = <HTMLInputElement>document.getElementById('emailbox');
-    const pushbox = <HTMLInputElement>document.getElementById('pushbox');
-    if (userInput.value === '') {
-      alert('Must fill message');
-      return false;
-    }
-    if (textbox.checked === false && emailbox.checked === false && pushbox.checked === false) {
-      alert('Must send to something');
-      return false;
-    }
+  // sendnow() {
+  //   const userInput = <HTMLInputElement>document.getElementById('userInput');
+  //   const textbox = <HTMLInputElement>document.getElementById('textbox');
+  //   const emailbox = <HTMLInputElement>document.getElementById('emailbox');
+  //   const pushbox = <HTMLInputElement>document.getElementById('pushbox');
+  //   if (userInput.value === '') {
+  //     alert('Must fill message');
+  //     return false;
+  //   }
+  //   if (textbox.checked === false && emailbox.checked === false && pushbox.checked === false) {
+  //     alert('Must send to something');
+  //     return false;
+  //   }
   
 
-    console.log(userInput.value, textbox.checked, emailbox.checked, pushbox.checked);
+  //   console.log(userInput.value, textbox.checked, emailbox.checked, pushbox.checked);
 
-    userInput.value = '';
-    textbox.checked = false;
-    emailbox.checked = false;
-    pushbox.checked = false;
-    this.sms.send('414-477-6749', 'text sent from marketing app');
-  }
+  //   userInput.value = '';
+  //   textbox.checked = false;
+  //   emailbox.checked = false;
+  //   pushbox.checked = false;
+  //   this.sms.send('414-477-6749', 'text sent from marketing app');
+  // }
 
   send() {
     const userInput = <HTMLInputElement>document.getElementById('userInput');
@@ -264,7 +275,10 @@ export class Tab3Page {
     freinput.value = undefined;
 
 
-    // this.api.getData();
+  }
+
+  getTest() {
+    this.api.getTest(this.api.params)
   }
 
 

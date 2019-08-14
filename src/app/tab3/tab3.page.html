@@ -66,6 +66,7 @@
 
   <div id='sendnow' style="text-align:center">
     <ion-button type='submit' (click)='confirmsendnow()'>Send Now</ion-button>
+    <ion-button type='submit' (click)='getTest()'>Get</ion-button>
   </div>
 
   <ion-list style="display:none" id='schedule'>
@@ -90,6 +91,8 @@
     </ion-item>
     <div style="text-align:center; margin: 1.25rem">
       <ion-button type='submit' (click)='confirm()'>Schedule</ion-button>
+      <ion-button type='submit' (click)='testAWS()'>Test</ion-button>
+
     </div>
   </ion-list>
 </ion-content>
