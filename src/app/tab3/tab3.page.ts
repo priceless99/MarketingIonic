@@ -275,7 +275,6 @@ export class Tab3Page {
     freinput.value = undefined;
 
 
-    // this.api.getData();
   }
 
   getTest() {
