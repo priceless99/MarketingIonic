@@ -17,6 +17,7 @@ import {
 import {
   RestapiService
 } from '../restapi.service';
+import { getTestBed } from '@angular/core/testing';
 
 @Component({
   selector: 'app-alogin',
@@ -36,7 +37,7 @@ export class LoginPage implements OnInit {
       // this.api.getData();
       setTimeout(() => {
         this.router.navigate(['/tabs/tab1']);
-
+        this.getTest();
       }, 1000);
       console.log(this.cognitoService.getAuthenticatedUser())
       this.cognitoService.getAuthenticatedUser().getSession(function (err, session) {
@@ -54,6 +55,9 @@ export class LoginPage implements OnInit {
   gender: any;
   SelectedValue: any;
 
+  getTest() {
+    this.api.getTest(this.api.params)
+  }
   ngOnInit() { }
 
   newlogin() {
@@ -98,7 +102,7 @@ export class LoginPage implements OnInit {
       setTimeout(() => {
         console.log("yooo")
         this.router.navigate(['/tabs/tab1'])
-
+        this.getTest();
       }, 1000);
 
       this.presentToast();

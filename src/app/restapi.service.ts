@@ -13,7 +13,7 @@ export class RestapiService {
   public _data: any;
   public phonenumbers = [
     '414-306-2025', '252-314-1214', '414-313-3131'
-  ];
+  ];  
   public emails = [
     'abc@abc.com',
     'abc@abc.com',
@@ -55,7 +55,7 @@ export class RestapiService {
 
  params = new  HttpParams().set('httpMethod', "GET").set('TableName', "Tier1Marketing");
 
- 
+
   getTest(params) {
 
     let myHeaders = new HttpHeaders({
@@ -72,7 +72,7 @@ export class RestapiService {
     this.http.get('https://i7pvoxtvci.execute-api.us-east-1.amazonaws.com/default/lambda-microservice',
     httpOptions)
      .subscribe( response => {
-      console.log("get success: ", response);
+      console.log("get success: ", response.Items);
     }, err => {
       console.log("get error: ", err);
     });
