@@ -37,6 +37,7 @@ export class LoginPage implements OnInit {
       // this.api.getData();
       setTimeout(() => {
         this.router.navigate(['/tabs/tab1']);
+        this.api.userEmail = this.cognitoService.getAuthenticatedUser().getUsername()
         this.getTest();
       }, 1000);
       console.log(this.cognitoService.getAuthenticatedUser())
@@ -99,6 +100,8 @@ export class LoginPage implements OnInit {
       console.log('User logged in');
       console.log(res);
       console.log(res['idToken']['jwtToken']);
+      this.api.userEmail = this.cognitoService.getAuthenticatedUser().getUsername()
+
       //  this.api.getData();
       setTimeout(() => {
         console.log("yooo")

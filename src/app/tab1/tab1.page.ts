@@ -34,8 +34,8 @@ export class Tab1Page {
   }
 
   logout() {
-    this.router.navigate(['/login']);
     this.cognito.getAuthenticatedUser().signOut();
+    this.router.navigate(['/login']);
   }
 
 

@@ -7,7 +7,7 @@ import * as AWSCognito from 'amazon-cognito-identity-js';
 export class CognitoService {
   private pool_data = {
     UserPoolId: "us-east-1_NrHIkcczQ",
-    ClientId: "125pesmrpei801dfppk13sp3bc"
+    ClientId: "4icj14jnbhq8natsvrpo1pr9p3"
     }
 
 

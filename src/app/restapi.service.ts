@@ -9,7 +9,7 @@ import { HttpParams } from '@angular/common/http';
 export class RestapiService {
 
   constructor(public cognitoService: CognitoService, public http: HttpClient) { }
-
+  public userEmail: any;
   public _data: any;
   public phonenumbers = [
     '414-306-2025', '252-314-1214', '414-313-3131'
@@ -52,16 +52,12 @@ export class RestapiService {
     subject: ''
   } 
 
+  public messageArray = [];
 
- params = new  HttpParams().set('httpMethod', "GET").set('TableName', "Tier1Marketing");
+ params = new  HttpParams().set('httpMethod', "GET").set('TableName', `Tier1Marketing`);
 
 
   getTest(params) {
-
-    let myHeaders = new HttpHeaders({
-      "Content-Type": "application/json"
-     });
-
 
     const httpOptions = {
       headers: { 'Content-Type': 'application/json' },
@@ -72,7 +68,10 @@ export class RestapiService {
     this.http.get('https://i7pvoxtvci.execute-api.us-east-1.amazonaws.com/default/lambda-microservice',
     httpOptions)
      .subscribe( response => {
-      console.log("get success: ", response);
+      const newRes = response.Items.filter(item => item.BusinessID === this.userEmail)
+      console.log("get success: ", newRes );
+      
+      console.log(this.userEmail);
     }, err => {
       console.log("get error: ", err);
     });
@@ -82,18 +81,18 @@ export class RestapiService {
   testPost() {
 
     console.log('button works')
-
+    this.messageArray.push(this.messageTest);
      const httpOptions = {
       headers: { 'Content-Type': 'application/json' }
   };
-
+  
    let Item = {
     
    'TableName' : "Tier1Marketing",
    "Item" : { 
-     "BusinessID" : 177,
-     'customers': "badbunny@shxtt",
-     'messages' : this.messageTest
+     "BusinessID" : this.userEmail,
+     'customers': this.emails,
+     'messages' : this.messageArray
       }
     }
   console.log("postdata: ", Item);
