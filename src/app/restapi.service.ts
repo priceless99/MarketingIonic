@@ -72,7 +72,7 @@ export class RestapiService {
     this.http.get('https://i7pvoxtvci.execute-api.us-east-1.amazonaws.com/default/lambda-microservice',
     httpOptions)
      .subscribe( response => {
-      console.log("get success: ", response.Items);
+      console.log("get success: ", response);
     }, err => {
       console.log("get error: ", err);
     });
@@ -90,7 +90,6 @@ export class RestapiService {
    let Item = {
     
    'TableName' : "Tier1Marketing",
-
    "Item" : { 
      "BusinessID" : 177,
      'customers': "badbunny@shxtt",
