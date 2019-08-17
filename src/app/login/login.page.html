@@ -1,59 +1,64 @@
 <ion-content style="text-align:center">
-  <ion-img src="/assets/thumbnail.png"></ion-img>
-  <h2><strong>Welcome to <br>Tier 1 Marketing</strong></h2>
-  <br>
-  <!-- <div id="main1" style="display: block">
-    <div>
-      <ion-button (click)="newlogin()">Login</ion-button>
+  <ion-card id="card">
+    <!-- <div id="main1" style="display: block">
+      <div>
+        <ion-button (click)="newlogin()">Login</ion-button>
+      </div>
+    </div> -->
+    <div id="login">
+      <h2><strong>Welcome to <br>Tier 1 Marketing</strong></h2>
+      <ion-img id="loginImg" src="/assets/Teri.png"></ion-img>
+      <h3>LOGIN</h3>
+      <!-- <ion-icon name="person" style="font-size: 5rem;" color="secondary"></ion-icon> -->
+      <div style="padding-left: 30px; padding-right: 30px; padding-top: 3rem;">
+        <ion-list>
+          <ion-item>
+            <ion-input [(ngModel)]="email" type="email" placeholder="Email" required ></ion-input>
+          </ion-item>
+          <br>
+          <ion-item>
+            <ion-input [(ngModel)]="password" type="password" placeholder="Password" required ></ion-input>
+            <!-- <input type="password" placeholder="Confirm Password" required> -->
+          </ion-item>
+        </ion-list>
+        <h6><a id="signUpLnk" (click)="newsignup()">Sign up here</a></h6>
+        <br>
+      </div>
+      <p id='wrongpassword' style="color: red; display:none">* Incorrect Email or Password</p>
+      <ion-button expand="block" shape="round" id="loginBtn" (click)="login()">LOGIN</ion-button>
+      <!-- <div>
+          <ion-button (click)="newsignup()"> Sign-Up </ion-button>
+      </div> -->
+      <!-- <div>
+        <ion-button (click)="goBack1()">Back</ion-button>
+      </div> -->
     </div>
-  </div> -->
-  <div id="login">
-    <ion-icon name="person" style="font-size: 5rem;" color="secondary"></ion-icon>
-    <div style="padding-left: 30px; padding-right: 30px;">
-      <ion-list>
+    <div id="signup" style="display:none">
+      <h2><strong>Welcome to <br>Tier 1 Marketing</strong></h2>
+    <ion-img id="loginImg" src="/assets/Teri.png"></ion-img>
+    <h3>SIGN-UP</h3>
+      <ion-list style="padding-left: 30px; padding-right: 30px;">
+        <br>
         <ion-item>
-          Email:
-          <ion-input [(ngModel)]="email" type="email" placeholder="Enter Email" required style="margin-left: 21%;"></ion-input>
+          <ion-input required type="text" placeholder="Email" [(ngModel)]="email"></ion-input>
         </ion-item>
+        <br>
         <ion-item>
-          Password:
-          <ion-input [(ngModel)]="password" type="password" placeholder="Enter Password" required style="margin-left: 9.98%;"></ion-input>
-          <!-- <input type="password" placeholder="Confirm Password" required> -->
+          <ion-input required type="password" placeholder="Password" [(ngModel)]="password"></ion-input>
+        </ion-item>
+        <br>
+        <ion-item>
+          <ion-input for="date" required><ion-datetime id="date" placeholder="Date of Birth" displayFormat="MM/DD/YYYY"></ion-datetime></ion-input>
         </ion-item>
       </ion-list>
-    </div>
-    <p id='wrongpassword' style="color: red; display:none">* Incorrect Email or Password</p>
-    <ion-button (click)="login()">Login</ion-button>
-    <div>
-        <ion-button (click)="newsignup()"> Sign-Up </ion-button>
+      <h6 id="loginLnk">Already have an account? <a (click)="goBack1()">Login</a></h6>
+      <br>
+      <div>
+        <ion-button expand="block" shape="round" id="loginBtn" (click)="register()" style="margin-bottom: 0.5rem; margin-top: 0.2rem;">SIGN-UP</ion-button>
       </div>
-    <!-- <div>
-      <ion-button (click)="goBack1()">Back</ion-button>
-    </div> -->
-  </div>
-  <div id="signup" style="display:none">
-
-    <ion-list style="padding-left: 30px; padding-right: 30px;">
-      <ion-item>
-        Email:
-        <ion-input required type="text" placeholder="Email" [(ngModel)]="email" style="margin-left: 23%;"></ion-input>
-      </ion-item>
-      <ion-item>
-        Password:
-        <ion-input required type="password" placeholder="Password" [(ngModel)]="password" style="margin-left: 12%;"></ion-input>
-      </ion-item>
-      <ion-item>
-        <!-- <ion-label>Date of Birth</ion-label> -->
-        Date of Birth:
-        <ion-input placeholder="MM/DD/YYYY" for="date"><ion-datetime displayFormat="MM/DD/YYYY"></ion-datetime></ion-input>
-      </ion-item>
-
-    </ion-list>
-    <div>
-      <ion-button (click)="goBack1()">Back</ion-button>
+      <!-- <div>
+          <ion-button expand="block" shape="round" id="loginBtn" (click)="goBack1()">BACK</ion-button>
+      </div> -->
     </div>
-    <div>
-      <ion-button (click)="register()">Sign-Up</ion-button>
-    </div>
-  </div>
+  </ion-card>
 </ion-content>

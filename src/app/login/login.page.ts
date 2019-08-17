@@ -61,29 +61,30 @@ export class LoginPage implements OnInit {
   ngOnInit() { }
 
   newlogin() {
-    let main1 = document.getElementById('main1');
+    // let main1 = document.getElementById('main1');
     let login = document.getElementById('login');
     let signup = document.getElementById('signup');
-    main1.style.display = 'none';
+    // main1.style.display = 'none';
     login.style.display = 'block';
     signup.style.display = 'none';
   }
 
   newsignup() {
-    let main1 = document.getElementById('main1');
+    // let main1 = document.getElementById('main1');
     let login = document.getElementById('login');
     let signup = document.getElementById('signup');
-    main1.style.display = 'none';
+    // main1.style.display = 'none';
     login.style.display = 'none';
     signup.style.display = 'block';
+    
   }
 
   goBack1() {
-    let main1 = document.getElementById('main1');
+    // let main1 = document.getElementById('main1');
     let login = document.getElementById('login');
     let signup = document.getElementById('signup');
     let x = document.getElementById('wrongpassword');
-    main1.style.display = 'block';
+    // main1.style.display = 'block';
     login.style.display = 'block';
     signup.style.display = 'none';
     x.style.display = 'none';
